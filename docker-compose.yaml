@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    image: dalongrong/explain.depesz.com
+    ports:
+     - "3000:3000"
+  db:
+    image: postgres:11.4
+    environment:
+      POSTGRES_USER: explaind
+      POSTGRES_PASSWORD: explain
+      POSTGRES_DB: explain
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
